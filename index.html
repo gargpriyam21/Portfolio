@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Priyam Garg | Software Development Engineer, Agentic AI</title>
+    <meta
+      name="description"
+      content="Priyam Garg is a Software Development Engineer at AWS who builds AI agents and the engineering that makes them dependable at scale."
+    />
+    <meta name="author" content="Priyam Garg" />
+    <meta name="theme-color" content="#0d1220" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f3f5f9" media="(prefers-color-scheme: light)" />
+    <script>
+      // Apply the saved or system theme before first paint, so there is no flash.
+      try {
+        var saved = localStorage.getItem('theme')
+        var theme = saved || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark')
+        document.documentElement.dataset.theme = theme
+      } catch (e) {
+        document.documentElement.dataset.theme = 'dark'
+      }
+    </script>
+    <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
+    <!-- Update these URLs (and the one in the JSON-LD block below) if the site address changes -->
+    <link rel="canonical" href="https://gargpriyam21.github.io/Portfolio/" />
+    <meta property="og:url" content="https://gargpriyam21.github.io/Portfolio/" />
+    <meta property="og:image" content="https://gargpriyam21.github.io/Portfolio/og.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Priyam Garg | Software Development Engineer, Agentic AI" />
+    <meta
+      property="og:description"
+      content="I make AI agents smarter and more dependable: faster pipelines, lower LLM cost and long-running jobs that survive failure."
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Priyam Garg | Software Development Engineer, Agentic AI" />
+    <meta
+      name="twitter:description"
+      content="I make AI agents smarter and more dependable: faster pipelines, lower LLM cost and long-running jobs that survive failure."
+    />
+    <meta name="twitter:image" content="https://gargpriyam21.github.io/Portfolio/og.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Priyam Garg",
+        "jobTitle": "Software Development Engineer",
+        "worksFor": { "@type": "Organization", "name": "Amazon Web Services" },
+        "url": "https://gargpriyam21.github.io/Portfolio/",
+        "address": { "@type": "PostalAddress", "addressLocality": "Seattle", "addressRegion": "WA", "addressCountry": "US" },
+        "alumniOf": [
+          { "@type": "CollegeOrUniversity", "name": "North Carolina State University" },
+          { "@type": "CollegeOrUniversity", "name": "Guru Gobind Singh Indraprastha University" }
+        ],
+        "sameAs": ["https://github.com/gargpriyam21", "https://www.linkedin.com/in/priyamgarg21/"]
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

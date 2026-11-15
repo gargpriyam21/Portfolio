@@ -1,0 +1,211 @@
+@import "tailwindcss";
+
+/* Theme tokens. Components use the Tailwind names (bg-ink, text-paper, ...);
+   the values come from the active theme below, so every class follows it. */
+@theme inline {
+  --font-display: "Bricolage Grotesque Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-ink: var(--ink);
+  --color-panel: var(--panel);
+  --color-raise: var(--raise);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-fog: var(--fog);
+  --color-paper: var(--paper);
+  --color-accent: var(--accent);
+  --color-on-accent: var(--on-accent);
+  --color-danger: var(--danger);
+}
+
+/* Dark is the default world: ink navy with one coral accent. */
+:root {
+  color-scheme: dark;
+  --ink: #0d1220;
+  --panel: #141c30;
+  --raise: #1c2540;
+  --line: #2a3553;
+  --line-strong: #5b6889;
+  --fog: #a3adc4;
+  --paper: #eceff6;
+  --accent: var(--accent-dark, #ff7a59);
+  --on-accent: #0d1220;
+  --danger: #ff8f8f;
+  --shadow: 0 18px 40px -18px rgb(0 0 0 / 0.6);
+}
+
+/* Light is the same world in daylight: cool off-white, never cream, and a
+   deeper coral so text and controls keep their contrast. */
+:root[data-theme="light"] {
+  color-scheme: light;
+  --ink: #f3f5f9;
+  --panel: #ffffff;
+  --raise: #e8ecf4;
+  --line: #d3d9e6;
+  --line-strong: #7d88a3;
+  --fog: #4c5872;
+  --paper: #111830;
+  --accent: var(--accent-light, #a84f00);
+  --on-accent: #ffffff;
+  --danger: #b4232a;
+  --shadow: 0 18px 40px -22px rgb(17 24 48 / 0.28);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    accent-color: var(--accent);
+    scrollbar-color: var(--line-strong) var(--ink);
+  }
+
+  body {
+    background: var(--ink);
+    color: var(--paper);
+    caret-color: var(--accent);
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+    transition: background-color 240ms ease, color 240ms ease;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: var(--on-accent);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-variation-settings: "opsz" 48;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    text-wrap: balance;
+  }
+
+  p, li, dd { text-wrap: pretty; }
+}
+
+@layer components {
+  /* Section tones alternate down the page; `surface` is the card colour that
+     contrasts with whichever tone it sits on. */
+  .tone-base { background: var(--ink); --surface: var(--panel); --surface-2: var(--raise); }
+  .tone-alt { background: var(--panel); --surface: var(--ink); --surface-2: var(--raise); }
+  .surface { background: var(--surface, var(--panel)); }
+  .surface-2 { background: var(--surface-2, var(--raise)); }
+
+  .shell {
+    width: 100%;
+    max-width: 72rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 640px) {
+    .shell { padding-inline: 2rem; }
+  }
+
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 2.875rem;
+    padding: 0.625rem 1.25rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease, transform 160ms ease;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn-solid { background: var(--accent); color: var(--on-accent); }
+  .btn-solid:hover { background: color-mix(in oklab, var(--accent) 86%, var(--paper)); }
+  .btn-quiet { border: 1px solid var(--line-strong); color: var(--paper); }
+  .btn-quiet:hover { border-color: var(--accent); color: var(--accent); }
+
+  .text-link {
+    color: var(--paper);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in oklab, var(--accent) 60%, transparent);
+    text-underline-offset: 0.25em;
+    text-decoration-thickness: 1.5px;
+    transition: color 160ms ease, text-decoration-color 160ms ease;
+  }
+  .text-link:hover { color: var(--accent); text-decoration-color: var(--accent); }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+    color: var(--fog);
+  }
+
+  .card-shadow { box-shadow: var(--shadow); }
+  .tabular { font-variant-numeric: tabular-nums; }
+}
+
+/* ---- Hero entrance: one orchestrated load sequence ----------------------- */
+.hero-rise {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: rise-in 700ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: calc(var(--d, 0) * 90ms);
+}
+@keyframes rise-in { to { opacity: 1; transform: none; } }
+
+/* ---- Run trace rows -------------------------------------------------------- */
+.trace-row { animation: trace-in 420ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+@keyframes trace-in {
+  from { opacity: 0; transform: translateY(6px); filter: blur(3px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+.trace-progress { transition: transform 360ms cubic-bezier(0.16, 1, 0.3, 1); transform-origin: left; }
+.trace-pulse { animation: pulse 1.1s ease-in-out infinite; }
+
+/* Knowledge graph in the run trace: nodes pop in, then the edges draw. */
+.kg-node { opacity: 0; animation: rise-in 260ms ease-out forwards; animation-delay: calc(var(--k) * 90ms); }
+.kg-edge { stroke-dasharray: 1; stroke-dashoffset: 1; animation: kg-draw 320ms ease-out forwards; animation-delay: calc(500ms + var(--k) * 80ms); }
+@keyframes kg-draw { to { stroke-dashoffset: 0; } }
+@keyframes pulse { 50% { opacity: 0.35; } }
+
+/* ---- About: the lead paragraph brightens word by word with scroll ---------- */
+.reveal-word {
+  --w: clamp(0, calc(var(--p, 1) * var(--n) - var(--i)), 1);
+  /* Unlit words stay at large-text contrast (3:1); lit words are full strength. */
+  color: color-mix(in oklab, var(--paper) calc(var(--w) * 100%), var(--fog));
+  opacity: calc(0.7 + var(--w) * 0.3);
+}
+
+/* ---- Skyline: the single line draws itself once ---------------------------- */
+.skyline-line { stroke-dasharray: 1; stroke-dashoffset: 1; }
+.skyline-line.is-drawn {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 3.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ---- Command palette ------------------------------------------------------- */
+dialog.palette::backdrop { background: rgb(5 8 16 / 0.6); backdrop-filter: blur(3px); }
+dialog.palette[open] { animation: palette-in 220ms cubic-bezier(0.16, 1, 0.3, 1); }
+@keyframes palette-in { from { opacity: 0; transform: translateY(-8px) scale(0.98); } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero-rise, .trace-row { animation: none; opacity: 1; transform: none; filter: none; }
+  .trace-pulse { animation: none; }
+  .kg-node, .kg-edge { animation: none; opacity: 1; stroke-dashoffset: 0; }
+  .skyline-line { stroke-dashoffset: 0; transition: none !important; }
+  .reveal-word { --w: 1 !important; }
+  dialog.palette[open] { animation: none; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; }
+}
