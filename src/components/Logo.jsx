@@ -27,7 +27,7 @@ export default function Logo({ file, name, mark, size = 'md' }) {
   return (
     <span
       aria-hidden="true"
-      className={`inline-flex shrink-0 items-center justify-center border border-line bg-raise font-display font-semibold tracking-tight text-accent ${box} ${
+      className={`inline-flex shrink-0 items-center justify-center border border-line bg-raise font-display font-semibold tracking-tight text-accent-ink ${box} ${
         letters.length > 2 ? 'text-xs' : 'text-base'
       }`}
     >

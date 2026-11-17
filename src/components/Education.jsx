@@ -34,7 +34,7 @@ function Featured({ e }) {
             <p className={`mt-1 ${soft}`}>{meta}</p>
             {e.grade && (
               <p className="mt-4 flex flex-wrap items-baseline gap-x-2.5">
-                <span className={`font-display text-4xl font-semibold leading-none ${url ? 'text-white' : 'text-accent'}`}>
+                <span className={`font-display text-4xl font-semibold leading-none ${url ? 'text-white' : 'text-accent-ink'}`}>
                   {e.grade}
                 </span>
                 <span className={`text-sm ${soft}`}>{e.gradeLabel}</span>
@@ -69,7 +69,7 @@ function Compact({ e }) {
       <p className="mt-4 text-sm text-fog">{[e.dates, e.location].filter(Boolean).join(', ')}</p>
       {e.grade && (
         <p className="mt-2 flex flex-wrap items-baseline gap-x-2">
-          <span className="font-display text-2xl font-semibold leading-none text-accent">{e.grade}</span>
+          <span className="font-display text-2xl font-semibold leading-none text-accent-ink">{e.grade}</span>
           <span className="text-sm text-fog">{e.gradeLabel}</span>
         </p>
       )}

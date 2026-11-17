@@ -9,7 +9,7 @@ export default function Skills({ tone }) {
       <dl className="divide-y divide-line border-y border-line">
         {groups.map((g, i) => (
           <div key={g.group} className="grid gap-3 py-6 md:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] md:gap-10">
-            <dt className={`font-display text-xl font-semibold ${i === 0 ? 'text-accent' : 'text-paper'}`}>{g.group}</dt>
+            <dt className={`font-display text-xl font-semibold ${i === 0 ? 'text-accent-ink' : 'text-paper'}`}>{g.group}</dt>
             <dd>
               <ul className="flex flex-wrap gap-2">
                 {g.items.map((item) => (

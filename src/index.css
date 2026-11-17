@@ -16,6 +16,7 @@
   --color-paper: var(--paper);
   --color-accent: var(--accent);
   --color-on-accent: var(--on-accent);
+  --color-accent-ink: var(--accent-ink);
   --color-danger: var(--danger);
 }
 
@@ -30,6 +31,7 @@
   --fog: #a3adc4;
   --paper: #eceff6;
   --accent: var(--accent-dark, #ff7a59);
+  --accent-ink: var(--accent);
   --on-accent: #0d1220;
   --danger: #ff8f8f;
   --shadow: 0 18px 40px -18px rgb(0 0 0 / 0.6);
@@ -46,8 +48,11 @@
   --line-strong: #7d88a3;
   --fog: #4c5872;
   --paper: #111830;
-  --accent: var(--accent-light, #a84f00);
-  --on-accent: #ffffff;
+  /* Light: a true AWS-style orange for fills, lines and buttons (dark text on
+     it), and a deeper orange for small text so it stays readable. */
+  --accent: var(--accent-light, #ec7211);
+  --accent-ink: var(--accent-light-ink, #aa5000);
+  --on-accent: #111830;
   --danger: #b4232a;
   --shadow: 0 18px 40px -22px rgb(17 24 48 / 0.28);
 }
@@ -78,7 +83,7 @@
   }
 
   :focus-visible {
-    outline: 2px solid var(--accent);
+    outline: 2px solid var(--accent-ink);
     outline-offset: 3px;
     border-radius: 4px;
   }
@@ -129,7 +134,7 @@
   .btn-solid { background: var(--accent); color: var(--on-accent); }
   .btn-solid:hover { background: color-mix(in oklab, var(--accent) 86%, var(--paper)); }
   .btn-quiet { border: 1px solid var(--line-strong); color: var(--paper); }
-  .btn-quiet:hover { border-color: var(--accent); color: var(--accent); }
+  .btn-quiet:hover { border-color: var(--accent); color: var(--accent-ink); }
 
   .text-link {
     color: var(--paper);
@@ -139,7 +144,8 @@
     text-decoration-thickness: 1.5px;
     transition: color 160ms ease, text-decoration-color 160ms ease;
   }
-  .text-link:hover { color: var(--accent); text-decoration-color: var(--accent); }
+  .text-link:hover { color: var(--accent-ink); text-decoration-color: var(--accent); }
+  :root[data-theme='light'] .btn-solid:hover { background: color-mix(in oklab, var(--accent) 85%, white); }
 
   .tag {
     display: inline-flex;

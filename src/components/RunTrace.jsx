@@ -87,7 +87,7 @@ function Operator() {
         fallback={
           <span
             aria-hidden="true"
-            className="inline-flex size-16 shrink-0 items-center justify-center rounded-2xl bg-raise font-display text-xl font-semibold text-accent ring-2 ring-accent/70 ring-offset-2 ring-offset-panel"
+            className="inline-flex size-16 shrink-0 items-center justify-center rounded-2xl bg-raise font-display text-xl font-semibold text-accent-ink ring-2 ring-accent/70 ring-offset-2 ring-offset-panel"
           >
             {initials}
           </span>
@@ -103,8 +103,8 @@ function Operator() {
 
 function StatusIcon({ state }) {
   if (state === 'lost') return <X aria-label="failed" className="size-4 text-danger" strokeWidth={2.5} />
-  if (state === 'done') return <Check aria-label="done" className="size-4 text-accent" strokeWidth={2.5} />
-  if (state === 'restore') return <RotateCcw aria-label="restoring" className="trace-pulse size-4 text-accent" strokeWidth={2.5} />
+  if (state === 'done') return <Check aria-label="done" className="size-4 text-accent-ink" strokeWidth={2.5} />
+  if (state === 'restore') return <RotateCcw aria-label="restoring" className="trace-pulse size-4 text-accent-ink" strokeWidth={2.5} />
   if (state === 'running') return <span aria-label="running" className="trace-pulse size-2.5 rounded-full bg-accent" />
   return <span aria-label="queued" className="size-2.5 rounded-full border border-line-strong" />
 }
@@ -217,7 +217,7 @@ export default function RunTrace() {
           <button
             type="button"
             onClick={play}
-            className="inline-flex min-h-11 shrink-0 items-center gap-2 rounded-full border border-line-strong px-3.5 text-sm font-medium text-paper transition-colors hover:border-accent hover:text-accent"
+            className="inline-flex min-h-11 shrink-0 items-center gap-2 rounded-full border border-line-strong px-3.5 text-sm font-medium text-paper transition-colors hover:border-accent hover:text-accent-ink"
           >
             <RotateCcw aria-hidden="true" className="size-4" />
             Replay
@@ -269,7 +269,7 @@ export default function RunTrace() {
             <span className="text-sm leading-snug text-danger">Agent 2 lost its worker mid-run</span>
           </div>
           <div className={`grid grid-cols-[4.25rem_minmax(0,1fr)] gap-x-3 ${tick >= LOST[1] ? 'trace-row' : 'invisible'}`}>
-            <span className="pt-px font-mono text-sm text-accent">restore</span>
+            <span className="pt-px font-mono text-sm text-accent-ink">restore</span>
             <span className="text-sm leading-snug text-paper">
               Picked up from checkpoint 2. Nothing redone, no facts lost.
             </span>
@@ -298,7 +298,7 @@ export default function RunTrace() {
           <div
             className={`grid grid-cols-[4.25rem_minmax(0,1fr)] gap-x-3 ${tick >= Q_ANSWER ? 'trace-row' : 'invisible'}`}
           >
-            <span className="pt-px font-mono text-sm text-accent">answer</span>
+            <span className="pt-px font-mono text-sm text-accent-ink">answer</span>
             <span className="text-sm leading-snug">
               <span className="block text-paper">{answer}</span>
               <span className="block text-fog">{answerNote}</span>

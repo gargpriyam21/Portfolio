@@ -6,7 +6,7 @@ import Icon from './Icon.jsx'
 // Built from ordinary elements so it reflows from a row to a column on phones.
 function Arrow() {
   return (
-    <span aria-hidden="true" className="flex items-center justify-center self-center text-accent lg:mt-12 lg:self-start">
+    <span aria-hidden="true" className="flex items-center justify-center self-center text-accent-ink lg:mt-12 lg:self-start">
       <ArrowRight className="hidden size-6 lg:block" />
       <ArrowDown className="size-6 lg:hidden" />
     </span>
@@ -16,7 +16,7 @@ function Arrow() {
 function Node({ icon, title, detail }) {
   return (
     <div className="flex items-center gap-3 rounded-xl border border-line surface px-4 py-3.5">
-      <span className="text-accent">
+      <span className="text-accent-ink">
         <Icon name={icon} className="size-5" />
       </span>
       <div>

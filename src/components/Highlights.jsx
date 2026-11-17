@@ -17,7 +17,7 @@ function Bars({ before, after }) {
         <span className="flex-1">
           <span className="block h-3 w-[7%] min-w-3 rounded-full bg-accent" />
         </span>
-        <span className="w-16 text-sm font-medium text-accent">{after}</span>
+        <span className="w-16 text-sm font-medium text-accent-ink">{after}</span>
       </div>
     </div>
   )

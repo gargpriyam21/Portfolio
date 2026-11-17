@@ -68,7 +68,7 @@ export default function ContactForm() {
           <Send aria-hidden="true" className="size-4" />
           {status === 'sending' ? 'Sending message' : 'Send message'}
         </button>
-        <p role="status" aria-live="polite" className={status === 'error' ? 'text-accent' : 'text-paper'}>
+        <p role="status" aria-live="polite" className={status === 'error' ? 'text-accent-ink' : 'text-paper'}>
           {messages[status] || ''}
         </p>
       </div>

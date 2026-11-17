@@ -18,7 +18,9 @@ colors:
   light-line-strong: "#7d88a3"
   light-fog: "#4c5872"
   light-paper: "#111830"
-  light-accent: "#a84f00"
+  light-accent: "#ec7211"
+  light-accent-ink: "#aa5000"
+  light-on-accent: "#111830"
   light-danger: "#b4232a"
 typography:
   display-name:
@@ -109,7 +111,7 @@ Two themes share one set of role names; components only ever use the roles (`ink
 - **raise**: selected rows, hover fills, header strips inside cards.
 - **line / line-strong**: hairlines and decorative borders use `line`; anything a person must see to operate (input borders, quiet-button borders) uses `line-strong` for at least 3:1.
 - **fog**: secondary text (7:1 or better in both themes).
-- **accent**: the only colour. Primary actions, the name's role line, active state, checks in the trace, diagram strokes, the skyline. Light theme uses a dark AWS-style orange (#a84f00) for text contrast.
+- **accent**: the only colour. Primary actions, the name's role line, active state, checks in the trace, diagram strokes, the skyline. Light theme uses an AWS orange (#ec7211) for fills, lines and buttons, with dark text on it, and a deeper orange (#aa5000, `accent-ink`) for small text so it keeps 4.5:1 on the light ground.
 - **danger**: only for failure inside a trace or diagram.
 
 ## Typography

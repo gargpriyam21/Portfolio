@@ -27,7 +27,7 @@ export default function Hero() {
           </h1>
 
           <p className="hero-rise mt-6 font-display text-2xl font-medium leading-snug sm:text-3xl" style={{ '--d': 1 }}>
-            <span className="block text-accent">{role}</span>
+            <span className="block text-accent-ink">{role}</span>
             {team && <span className="block text-paper">{team}</span>}
           </p>
 
@@ -55,7 +55,7 @@ export default function Hero() {
 
           {location && (
             <p className="hero-rise mt-6 inline-flex items-center gap-2 text-paper" style={{ '--d': 4 }}>
-              <NeedleIcon className="size-5 text-accent" />
+              <NeedleIcon className="size-5 text-accent-ink" />
               {location}
             </p>
           )}

@@ -8,7 +8,7 @@ export default function Publications({ tone }) {
       <ul className="divide-y divide-line border-y border-line">
         {profile.publications.map((p) => (
           <li key={p.title} className="grid gap-2 py-6 md:grid-cols-[5rem_minmax(0,1fr)] md:gap-8">
-            <p className="font-display text-xl font-semibold text-accent">{p.year}</p>
+            <p className="font-display text-xl font-semibold text-accent-ink">{p.year}</p>
             <div>
               <h3 className="font-sans text-lg font-medium leading-snug tracking-normal text-paper">
                 {p.url ? (

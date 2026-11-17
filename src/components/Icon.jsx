@@ -19,7 +19,7 @@ export default function Icon({ name, className = 'size-6' }) {
 export function IconTile({ name, size = 'md' }) {
   const box = size === 'sm' ? 'size-10 rounded-lg' : 'size-12 rounded-xl'
   return (
-    <span className={`inline-flex shrink-0 items-center justify-center bg-accent/12 text-accent ${box}`}>
+    <span className={`inline-flex shrink-0 items-center justify-center bg-accent/12 text-accent-ink ${box}`}>
       <Icon name={name} className={size === 'sm' ? 'size-5' : 'size-6'} />
     </span>
   )

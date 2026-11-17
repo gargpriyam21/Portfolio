@@ -125,7 +125,7 @@ function Roles({ roles }) {
             {r.team && <span className="font-normal text-fog">, {r.team}</span>}
             {r.period && (
               <span
-                className={`tag ml-2.5 align-middle font-sans font-normal ${r.period === 'Now' ? 'border-accent/60 text-accent' : ''}`}
+                className={`tag ml-2.5 align-middle font-sans font-normal ${r.period === 'Now' ? 'border-accent/60 text-accent-ink' : ''}`}
               >
                 {r.period}
               </span>
@@ -183,7 +183,7 @@ function Panel({ stop }) {
           <p className="font-display text-xl font-semibold text-paper">{edu.degree}</p>
           {edu.grade && (
             <p className="mt-2 text-paper">
-              <span className="font-semibold text-accent">{edu.grade}</span> {edu.gradeLabel}
+              <span className="font-semibold text-accent-ink">{edu.grade}</span> {edu.gradeLabel}
             </p>
           )}
           {edu.courses?.length > 0 && (
@@ -226,7 +226,7 @@ export default function Career({ tone }) {
         <div className="px-5 pt-6 sm:px-8 sm:pt-8">
           <div className="mb-4 flex flex-wrap items-center justify-between gap-x-6 gap-y-2 text-sm text-fog">
             <p className="inline-flex items-center gap-2">
-              <MousePointerClick aria-hidden="true" className="size-4 text-accent" />
+              <MousePointerClick aria-hidden="true" className="size-4 text-accent-ink" />
               Select a stop on the line to see its details below.
             </p>
             {map?.narrow && (
@@ -288,7 +288,7 @@ export default function Career({ tone }) {
                         {t.t}
                       </text>
                     ))}
-                    <text x={map.nowX} y={map.axisY + 16} textAnchor="end" className="fill-accent">
+                    <text x={map.nowX} y={map.axisY + 16} textAnchor="end" className="fill-accent-ink">
                       now
                     </text>
                   </g>

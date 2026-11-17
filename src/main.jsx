@@ -13,6 +13,7 @@ import { profile } from './data/profile.js'
 const root = document.documentElement.style
 if (profile.accent?.dark) root.setProperty('--accent-dark', profile.accent.dark)
 if (profile.accent?.light) root.setProperty('--accent-light', profile.accent.light)
+if (profile.accent?.lightText) root.setProperty('--accent-light-ink', profile.accent.lightText)
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

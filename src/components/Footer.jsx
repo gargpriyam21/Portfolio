@@ -12,13 +12,13 @@ export default function Footer() {
           <span className="hidden lg:inline">. Press {paletteShortcut} to jump anywhere.</span>
         </p>
         <div className="flex flex-wrap gap-x-6 gap-y-1 [&_a]:inline-flex [&_a]:min-h-11 [&_a]:items-center [&_a]:gap-1">
-          <ExternalLink href={github} className="hover:text-accent">
+          <ExternalLink href={github} className="hover:text-accent-ink">
             GitHub
           </ExternalLink>
-          <ExternalLink href={linkedin} className="hover:text-accent">
+          <ExternalLink href={linkedin} className="hover:text-accent-ink">
             LinkedIn
           </ExternalLink>
-          <a href="#home" className="hover:text-accent">
+          <a href="#home" className="hover:text-accent-ink">
             Back to top
           </a>
         </div>

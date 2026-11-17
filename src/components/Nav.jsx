@@ -143,7 +143,7 @@ export default function Nav({ sections, primary }) {
                       onClick={() => setOpen(false)}
                       aria-current={active === s.id ? 'true' : undefined}
                       className={`flex min-h-11 items-center font-display text-xl font-medium ${
-                        active === s.id ? 'text-accent' : 'text-paper'
+                        active === s.id ? 'text-accent-ink' : 'text-paper'
                       }`}
                     >
                       {s.label}
@@ -152,15 +152,15 @@ export default function Nav({ sections, primary }) {
                 ))}
               <li className="mt-2 flex flex-wrap items-center gap-x-6 border-t border-line pt-2 pb-1 text-fog">
                 {resumeHref && (
-                  <a href={resumeHref} download className="inline-flex min-h-11 items-center gap-2 text-paper hover:text-accent">
+                  <a href={resumeHref} download className="inline-flex min-h-11 items-center gap-2 text-paper hover:text-accent-ink">
                     <Download aria-hidden="true" className="size-4" />
                     Resume
                   </a>
                 )}
-                <ExternalLink href={github} className="inline-flex min-h-11 items-center gap-1 hover:text-accent">
+                <ExternalLink href={github} className="inline-flex min-h-11 items-center gap-1 hover:text-accent-ink">
                   GitHub
                 </ExternalLink>
-                <ExternalLink href={linkedin} className="inline-flex min-h-11 items-center gap-1 hover:text-accent">
+                <ExternalLink href={linkedin} className="inline-flex min-h-11 items-center gap-1 hover:text-accent-ink">
                   LinkedIn
                 </ExternalLink>
               </li>

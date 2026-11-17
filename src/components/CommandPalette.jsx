@@ -158,7 +158,7 @@ export default function CommandPalette({ sections }) {
                   i === active ? 'bg-raise text-paper' : 'text-paper/90'
                 }`}
               >
-                <Icon aria-hidden="true" className={`size-4 shrink-0 ${i === active ? 'text-accent' : 'text-fog'}`} />
+                <Icon aria-hidden="true" className={`size-4 shrink-0 ${i === active ? 'text-accent-ink' : 'text-fog'}`} />
                 <span className="flex-1">{item.label}</span>
                 {i === active && <CornerDownLeft aria-hidden="true" className="size-4 text-fog" />}
               </button>

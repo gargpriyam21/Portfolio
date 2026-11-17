@@ -15,7 +15,7 @@ export const profile = {
   location: 'Seattle, WA',
   experience: '4+ years', // industry experience, shown in the hero intro and the facts list
   photo: 'portrait', // src/assets/photos/portrait.jpg; until it exists the hero shows your initials
-  accent: { dark: '#ff7a59', light: '#a84f00' }, // the one accent colour, per theme
+  accent: { dark: '#ff7a59', light: '#ec7211', lightText: '#aa5000' }, // the one accent colour, per theme
 
   // ---- Hero --------------------------------------------------------------
   headline: 'I make AI agents smarter and more dependable.',
