@@ -2,12 +2,17 @@ import { profile } from '../data/profile.js'
 import Section from './Section.jsx'
 import TechList from './TechList.jsx'
 import ExternalLink from './ExternalLink.jsx'
-import Photo from './Photo.jsx'
+import Photo, { photoUrl } from './Photo.jsx'
+import ProjectCover from './ProjectCover.jsx'
 
 function ProjectCard({ project }) {
   return (
     <li className="surface flex h-full flex-col overflow-hidden rounded-2xl border border-line">
-      <Photo name={project.photo} alt={`${project.name} screenshot`} className="aspect-[16/9] w-full border-b border-line" />
+      {photoUrl(project.photo) || !project.cover ? (
+        <Photo name={project.photo} alt={`${project.name} screenshot`} className="aspect-[16/9] w-full border-b border-line" />
+      ) : (
+        <ProjectCover id={project.cover} className="border-b border-line" />
+      )}
       <div className="flex flex-1 flex-col p-6 sm:p-7">
       <h3 className="text-2xl font-semibold">{project.name}</h3>
       {(project.category || project.year) && (

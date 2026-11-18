@@ -342,7 +342,8 @@ export const profile = {
       name: 'IoT Smart Dog Collar',
       category: 'IoT',
       year: '2022',
-      photo: 'project-dog-collar',
+      photo: 'project-dog-collar', // a real photo, if added, replaces the drawn cover
+      cover: 'dog-collar',
       problem: 'Pet owners cannot watch a pet all day, but want to know when it gets into things it should not.',
       description:
         'A collar and a tagged object each carry a Raspberry Pi with a motion sensor. Bluetooth beacons triangulate the dog’s position, and the system flags when the dog and the object move together. Built as a team project at NC State.',
@@ -355,7 +356,8 @@ export const profile = {
       name: 'Client-Server File Transfer',
       category: 'Networking',
       year: '2021',
-      photo: 'project-file-transfer',
+      photo: 'project-file-transfer', // a real photo, if added, replaces the drawn cover
+      cover: 'file-transfer',
       problem: 'Reliable file transfer over an unreliable link depends on how lost packets are detected and resent.',
       description:
         'An FTP-style server and client in Python with three retransmission schemes: Go-Back-N, Selective Repeat and Stop-and-Wait. A multithreaded model buffers and manages packets in parallel, which sped up transfer by 50%.',
@@ -367,7 +369,8 @@ export const profile = {
       name: 'Chicken Swarm Optimisation',
       category: 'ML research',
       year: '2019',
-      photo: 'project-chicken-swarm',
+      photo: 'project-chicken-swarm', // a real photo, if added, replaces the drawn cover
+      cover: 'chicken-swarm',
       problem: 'Medical datasets carry many features, and most of them add noise to a prediction.',
       description:
         'A nature-inspired evolutionary algorithm for feature selection, modelled on the hierarchy of a chicken swarm. Applied to cervical cancer prediction and published with Springer.',
@@ -379,7 +382,8 @@ export const profile = {
       name: 'Door Movement Detection',
       category: 'IoT and ML',
       year: '2022',
-      photo: 'project-door-detection',
+      photo: 'project-door-detection', // a real photo, if added, replaces the drawn cover
+      cover: 'door-detection',
       problem: 'Detecting whether a door opened or closed from raw motion readings alone.',
       description:
         'A motion sensor on a door streams readings from a Raspberry Pi over MQTT. A classifier hosted on IBM Cloud labels each movement as open or close and publishes the result back to subscribers.',
@@ -391,7 +395,8 @@ export const profile = {
       name: 'MyPack-Lite',
       category: 'Full stack',
       year: '2022',
-      photo: 'project-mypack-lite',
+      photo: 'project-mypack-lite', // a real photo, if added, replaces the drawn cover
+      cover: 'mypack-lite',
       problem: 'Course enrollment needs different rules for students, instructors and administrators.',
       description:
         'A full-stack course enrollment application with role-based access, course management and a waitlist system, modelled on NC State’s enrollment portal.',
@@ -403,7 +408,8 @@ export const profile = {
       name: 'Brain Tumour Segmentation',
       category: 'Deep learning',
       year: '2018',
-      photo: 'project-brain-tumour',
+      photo: 'project-brain-tumour', // a real photo, if added, replaces the drawn cover
+      cover: 'brain-tumour',
       problem: 'Marking tumour regions on MRI scans by hand is slow and varies between readers.',
       description:
         'A deep learning approach that segments brain tumours from MRI images with a U-Net based fully convolutional network. The work behind my first published paper.',

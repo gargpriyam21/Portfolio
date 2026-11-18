@@ -26,6 +26,9 @@ Accepted formats: `.jpg`, `.jpeg`, `.png`, `.webp`. Keep each file under about 4
 To move what a photo shows inside its frame, set `photoPosition` next to its `photo`
 value in `src/data/profile.js` (for example `'center 20%'` keeps the top in view).
 
+The six projects already have drawn covers (`src/components/ProjectCover.jsx`). A photo
+with a `project-*` name is optional and, if added, replaces that project's drawn cover.
+
 While a photo is missing:
 - in `npm run dev`, a dashed box shows the expected file name, so you can see where it goes;
 - on the published site, the slot is hidden (the hero shows your initials instead).
