@@ -81,30 +81,60 @@ function Growth({ steps }) {
   )
 }
 
-function Papers({ papers }) {
-  // One mark per paper, placed on a year line.
-  const years = [...new Set(papers.map((p) => p.year))].sort()
+function GraphGrowth() {
+  // A small graph beside a much larger one: the same builder, far bigger input.
+  let seed = 5
+  const rand = () => {
+    seed = (seed * 9301 + 49297) % 233280
+    return seed / 233280
+  }
+  const cols = 6
+  const rows = 3
+  const big = []
+  for (let r = 0; r < rows; r++)
+    for (let c = 0; c < cols; c++) big.push([150 + c * 24 + (rand() - 0.5) * 10, 18 + r * 26 + (rand() - 0.5) * 10])
+  const bigEdges = []
+  big.forEach((_, i) => {
+    const c = i % cols
+    const r = Math.floor(i / cols)
+    if (c < cols - 1 && rand() < 0.8) bigEdges.push([i, i + 1])
+    if (r < rows - 1 && rand() < 0.6) bigEdges.push([i, i + cols])
+    if (c < cols - 1 && r < rows - 1 && rand() < 0.3) bigEdges.push([i, i + cols + 1])
+  })
+  const small = [
+    [36, 31],
+    [60, 31],
+    [36, 57],
+    [60, 57],
+  ]
+  const smallEdges = [
+    [0, 1],
+    [0, 2],
+    [1, 3],
+  ]
   return (
-    <div className="mt-6" aria-hidden="true">
-      <div className="relative flex items-end justify-between border-b-2 border-line-strong/60 pb-3">
-        {years.map((y) => (
-          <div key={y} className="flex flex-col items-center gap-1.5">
-            {papers
-              .filter((p) => p.year === y)
-              .map((p) => (
-                <span key={p.title} className="block h-2.5 w-9 rounded-sm bg-accent" />
-              ))}
-          </div>
-        ))}
-      </div>
-      <div className="mt-2 flex justify-between text-sm text-fog">
-        {years.map((y) => (
-          <span key={y} className="tabular w-9 text-center">
-            {y}
-          </span>
-        ))}
-      </div>
-    </div>
+    <svg viewBox="0 0 280 104" className="mt-6 h-auto w-full" aria-hidden="true">
+      {smallEdges.map(([a, b]) => (
+        <line key={`s${a}${b}`} x1={small[a][0]} y1={small[a][1]} x2={small[b][0]} y2={small[b][1]} stroke="var(--line-strong)" strokeWidth="1.5" />
+      ))}
+      {small.map(([x, y]) => (
+        <circle key={`sn${x}${y}`} cx={x} cy={y} r="4" fill="var(--line-strong)" />
+      ))}
+      <path d="M96 44 H124" stroke="var(--line-strong)" strokeWidth="1.5" />
+      <path d="M120 40 L126 44 L120 48" fill="none" stroke="var(--line-strong)" strokeWidth="1.5" />
+      {bigEdges.map(([a, b]) => (
+        <line key={`b${a}-${b}`} x1={big[a][0]} y1={big[a][1]} x2={big[b][0]} y2={big[b][1]} stroke="var(--accent)" strokeOpacity="0.5" strokeWidth="1.25" />
+      ))}
+      {big.map(([x, y], i) => (
+        <circle key={`bn${i}`} cx={x} cy={y} r="4" fill="var(--accent)" />
+      ))}
+      <text x="48" y="98" textAnchor="middle" className="fill-fog" style={{ fontSize: 12 }}>
+        before
+      </text>
+      <text x="210" y="98" textAnchor="middle" className="fill-fog" style={{ fontSize: 12 }}>
+        much larger inputs
+      </text>
+    </svg>
   )
 }
 
@@ -150,12 +180,19 @@ export default function Highlights({ tone }) {
         </li>
 
         <li className={`${card} md:col-span-2`}>
-          <h3 className={title}>{h.research.title}</h3>
-          <p className="mt-3 text-fog">{h.research.body}</p>
-          <Papers papers={profile.publications} />
-          <a href="#publications" className="text-link mt-auto inline-flex min-h-11 items-center self-start pt-3 text-sm font-medium">
-            Read the papers
-          </a>
+          <h3 className={title}>{h.graph.title}</h3>
+          <p className="mt-3 text-fog">{h.graph.body}</p>
+          <GraphGrowth />
+          <button
+            type="button"
+            onClick={() => {
+              document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' })
+              replayRun()
+            }}
+            className="text-link mt-auto inline-flex min-h-11 items-center self-start pt-3 text-sm font-medium"
+          >
+            See a graph answer a question
+          </button>
         </li>
       </ul>
     </Section>

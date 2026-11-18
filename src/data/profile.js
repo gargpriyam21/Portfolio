@@ -66,9 +66,9 @@ export const profile = {
       title: '4+ years in industry',
       steps: ['Technology Analyst', 'Software Engineer Intern', 'Software Engineer', 'Software Development Engineer'],
     },
-    research: {
-      title: '4 papers',
-      body: 'Peer-reviewed work in Elsevier and Springer venues.',
+    graph: {
+      title: 'Knowledge graphs at scale',
+      body: 'Scaled a knowledge graph builder to much larger inputs and built knowledge-base retrieval for an agent.',
     },
   },
 
