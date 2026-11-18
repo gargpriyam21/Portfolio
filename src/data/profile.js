@@ -304,6 +304,8 @@ export const profile = {
       gradeLabel: 'CGPA, out of 10',
       courses: ['Data Structures', 'Operating Systems', 'Computer Networks', 'Database Systems', 'Software Engineering'],
       logo: 'ggsipu',
+      photo: 'edu-ggsipu',
+      photoPosition: 'center 72%',
       mark: 'IPU',
     },
     {
@@ -318,6 +320,8 @@ export const profile = {
       coursesLabel: 'Class XI and XII',
       courses: ['Science stream (non-medical)', 'Physics', 'Chemistry', 'Mathematics'],
       logo: 'ryan',
+      photo: 'edu-ris',
+      photoPosition: 'center 20%',
       mark: 'RIS',
     },
   ],
