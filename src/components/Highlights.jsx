@@ -175,11 +175,6 @@ export default function Highlights({ tone }) {
         </li>
 
         <li className={`${card} md:col-span-2`}>
-          <h3 className={title}>{h.growth.title}</h3>
-          <Growth steps={h.growth.steps} />
-        </li>
-
-        <li className={`${card} md:col-span-2`}>
           <h3 className={title}>{h.graph.title}</h3>
           <p className="mt-3 text-fog">{h.graph.body}</p>
           <GraphGrowth />
@@ -194,6 +189,11 @@ export default function Highlights({ tone }) {
             See a graph answer a question
           </button>
         </li>
+        <li className={`${card} md:col-span-2`}>
+          <h3 className={title}>{h.growth.title}</h3>
+          <Growth steps={h.growth.steps} />
+        </li>
+
       </ul>
     </Section>
   )
