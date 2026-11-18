@@ -3,7 +3,6 @@ import { MousePointerClick } from 'lucide-react'
 import { profile } from '../data/profile.js'
 import Section from './Section.jsx'
 import Logo from './Logo.jsx'
-import Photo from './Photo.jsx'
 
 // Career as a route: one line runs through time on two lanes, professional career
 // on top and education below, and switches lanes at each move. Every stop is a button;
@@ -116,8 +115,9 @@ function layout(route, width) {
 }
 
 function Roles({ roles }) {
+  // Two or more roles at one company sit side by side on wide screens.
   return (
-    <div className="space-y-6">
+    <div className={`grid gap-8 ${roles.length > 1 ? 'lg:grid-cols-2 lg:gap-12' : ''}`}>
       {roles.map((r) => (
         <div key={`${r.title}-${r.team || ''}-${r.period || ''}`}>
           <p className="font-display text-xl font-semibold text-paper">
@@ -157,13 +157,14 @@ function Panel({ stop }) {
   const job = stop.ref.career && profile.career.find((c) => c.id === stop.ref.career)
   const edu = stop.ref.education !== undefined && profile.education[stop.ref.education]
   const head = job
-    ? { logo: job.logo, mark: job.mark, name: job.org, meta: [job.dates, job.place], story: job.story, photo: job.photo }
+    ? { logo: job.logo, mark: job.mark, name: job.org, meta: [job.dates, job.place], story: job.story }
     : { logo: edu.logo, mark: edu.mark, name: edu.school, meta: [edu.dates, edu.location] }
 
   return (
-    <div className="grid gap-6 lg:grid-cols-[minmax(0,4fr)_minmax(0,7fr)] lg:gap-10">
-      <div>
-        <div className="flex items-center gap-4">
+    <div>
+      {/* The company or school as a header row, so the details below get the full width. */}
+      <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
+        <div className="flex min-w-0 items-center gap-4">
           <Logo file={head.logo} name={head.name} mark={head.mark} />
           <div className="min-w-0">
             <h3 id="career-panel-title" className="text-xl font-semibold leading-snug text-paper">
@@ -172,31 +173,32 @@ function Panel({ stop }) {
             <p className="text-sm text-fog">{head.meta.filter(Boolean).join(', ')}</p>
           </div>
         </div>
-        {head.story && <p className="mt-4 text-paper/90">{head.story}</p>}
-        {head.photo && <Photo name={head.photo} alt={head.name} className="mt-5 hidden aspect-[4/3] w-full rounded-xl lg:flex" />}
+        {head.story && <p className="text-paper/90 md:border-l md:border-line md:pl-8">{head.story}</p>}
       </div>
 
-      {job ? (
-        <Roles roles={job.roles} />
-      ) : (
-        <div>
-          <p className="font-display text-xl font-semibold text-paper">{edu.degree}</p>
-          {edu.grade && (
-            <p className="mt-2 text-paper">
-              <span className="font-semibold text-accent-ink">{edu.grade}</span> {edu.gradeLabel}
-            </p>
-          )}
-          {edu.courses?.length > 0 && (
-            <p className="mt-3 text-fog">
-              <span className="text-paper">{edu.coursesLabel || 'Coursework'}: </span>
-              {edu.courses.join(', ')}
-            </p>
-          )}
-          <a href="#education" className="text-link mt-1 inline-flex min-h-11 items-center text-sm font-medium">
-            See Education
-          </a>
-        </div>
-      )}
+      <div className="mt-6 border-t border-line pt-6">
+        {job ? (
+          <Roles roles={job.roles} />
+        ) : (
+          <div>
+            <p className="font-display text-xl font-semibold text-paper">{edu.degree}</p>
+            {edu.grade && (
+              <p className="mt-2 text-paper">
+                <span className="font-semibold text-accent-ink">{edu.grade}</span> {edu.gradeLabel}
+              </p>
+            )}
+            {edu.courses?.length > 0 && (
+              <p className="mt-3 text-fog">
+                <span className="text-paper">{edu.coursesLabel || 'Coursework'}: </span>
+                {edu.courses.join(', ')}
+              </p>
+            )}
+            <a href="#education" className="text-link mt-1 inline-flex min-h-11 items-center text-sm font-medium">
+              See Education
+            </a>
+          </div>
+        )}
+      </div>
     </div>
   )
 }
