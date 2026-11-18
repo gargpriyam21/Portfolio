@@ -10,6 +10,7 @@ import Skills from './components/Skills.jsx'
 import Projects from './components/Projects.jsx'
 import Publications from './components/Publications.jsx'
 import Contact from './components/Contact.jsx'
+import Achievements from './components/Achievements.jsx'
 import Footer from './components/Footer.jsx'
 import CommandPalette from './components/CommandPalette.jsx'
 
@@ -25,6 +26,7 @@ const order = [
   { id: 'skills', label: 'Skills', Component: Skills, show: has(profile.skills) },
   { id: 'projects', label: 'Projects', Component: Projects, show: has(profile.projects) },
   { id: 'publications', label: 'Publications', Component: Publications, show: has(profile.publications) },
+  { id: 'achievements', label: 'Achievements', Component: Achievements, show: has(profile.achievements) },
   { id: 'contact', label: 'Contact', Component: Contact, show: true },
 ]
 

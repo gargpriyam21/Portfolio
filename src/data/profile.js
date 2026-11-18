@@ -74,6 +74,7 @@ export const profile = {
 
   // ---- About -------------------------------------------------------------
   // The lead brightens word by word as the visitor scrolls past it.
+  aboutPhoto: 'about-portrait', // the large portrait beside the About text
   aboutLead:
     'I build production AI agents at AWS, and my work is the part that makes them dependable: the right context, structured output, checks on every result, and a way to recover when something fails.',
   about: [
@@ -417,6 +418,19 @@ export const profile = {
       repo: 'https://github.com/gargpriyam21/Brain-Tumour-Segmentation',
       demo: '',
     },
+    {
+      name: 'Art Gallery',
+      category: 'Web, personal',
+      year: '2019',
+      photo: 'project-art-gallery', // a real photo, if added, replaces the drawn cover
+      cover: 'art-gallery',
+      problem: 'I wanted one place to show my pencil sketches and drawings.',
+      description:
+        'A website from my college years that showcases my sketches: a gallery page, a catalogue rendered from XML with XSL, and a contact form with JavaScript validation.',
+      tech: ['HTML', 'CSS', 'Bootstrap', 'JavaScript', 'XML'],
+      repo: 'https://github.com/gargpriyam21/Art-Gallery',
+      demo: '',
+    },
   ],
 
   // ---- Publications --------------------------------------------------------
@@ -444,6 +458,31 @@ export const profile = {
       venue: 'Journal of Multi-Disciplinary Engineering Technologies',
       year: '2018',
       url: 'http://www.jmdet.com/wp-content/uploads/2019/02/4jmdet_12_2_4-2.pdf',
+    },
+  ],
+
+  // ---- Leadership and achievements ---------------------------------------------
+  achievements: [
+    {
+      icon: 'talk',
+      title: 'Conference talk',
+      body: 'Presented “Prediction of Cervical Cancer Using Chicken Swarm Optimization” at the International Conference on Innovative Computing and Communications (ICICC), hosted by VŠB – Technical University of Ostrava, Czech Republic.',
+      link: { href: '#projects', label: 'See the project' },
+    },
+    {
+      icon: 'teach',
+      title: 'Workshop lead',
+      body: 'Taught Android app development to more than 50 high school students at Ryan International School, through the Government of India’s Atal Tinkering Lab programme.',
+    },
+    {
+      icon: 'award',
+      title: 'First place, Engineering Graphics',
+      body: 'Ranked first in the Engineering Graphics board exam and received a certificate of honour.',
+    },
+    {
+      icon: 'music',
+      title: 'Plectrum guitar',
+      body: 'Passed Grades 1 and 2 in plectrum guitar with Trinity College London.',
     },
   ],
 

@@ -5,13 +5,20 @@ import ExternalLink from './ExternalLink.jsx'
 import Photo, { photoUrl } from './Photo.jsx'
 import ProjectCover from './ProjectCover.jsx'
 
-function ProjectCard({ project }) {
+function ProjectCard({ project, wide = false }) {
   return (
-    <li className="surface flex h-full flex-col overflow-hidden rounded-2xl border border-line">
+    <li
+      className={`surface flex h-full flex-col overflow-hidden rounded-2xl border border-line ${
+        wide ? 'md:col-span-2 lg:grid lg:grid-cols-2' : ''
+      }`}
+    >
       {photoUrl(project.photo) || !project.cover ? (
         <Photo name={project.photo} alt={`${project.name} screenshot`} className="aspect-[16/9] w-full border-b border-line" />
       ) : (
-        <ProjectCover id={project.cover} className="border-b border-line" />
+        <ProjectCover
+          id={project.cover}
+          className={`border-b border-line ${wide ? 'lg:flex lg:items-center lg:border-b-0 lg:border-r lg:bg-ink' : ''}`}
+        />
       )}
       <div className="flex flex-1 flex-col p-6 sm:p-7">
       <h3 className="text-2xl font-semibold">{project.name}</h3>
@@ -47,8 +54,9 @@ export default function Projects({ tone }) {
       lead="Things I built during my master’s and undergraduate years, outside of work."
     >
       <ul className="grid gap-5 md:grid-cols-2">
-        {profile.projects.map((p) => (
-          <ProjectCard key={p.name} project={p} />
+        {profile.projects.map((p, i, all) => (
+          // An odd last card spans the full row, cover beside the text.
+          <ProjectCard key={p.name} project={p} wide={all.length % 2 === 1 && i === all.length - 1} />
         ))}
       </ul>
     </Section>

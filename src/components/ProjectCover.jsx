@@ -384,7 +384,70 @@ function BrainTumour() {
   )
 }
 
+// ---- Art Gallery ------------------------------------------------------------------
+// A gallery page of framed pencil sketches (abstract, not the real drawings).
+function ArtGallery() {
+  const frames = [
+    [96, 92, 'hatch'],
+    [262, 92, 'spiral'],
+    [428, 92, 'hills'],
+    [96, 214, 'hills'],
+    [262, 214, 'hatch'],
+    [428, 214, 'spiral'],
+  ]
+  const sketch = (kind, x, y) => {
+    if (kind === 'hatch')
+      return (
+        <g>
+          <clipPath id={`art-clip-${x}-${y}`}>
+            <circle cx={x + 58} cy={y + 46} r="25" />
+          </clipPath>
+          <g clipPath={`url(#art-clip-${x}-${y})`}>
+            {[-30, -20, -10, 0, 10, 20, 30].map((d) => (
+              <path key={d} d={`M${x + 38 + d} ${y + 76} L${x + 78 + d} ${y + 16}`} stroke={S} strokeWidth="1.25" />
+            ))}
+          </g>
+          <circle cx={x + 58} cy={y + 46} r="26" fill="none" stroke={P} strokeWidth="1.5" />
+        </g>
+      )
+    if (kind === 'spiral')
+      return (
+        <path
+          d={`M${x + 58} ${y + 46} m-4 0 a4 4 0 1 1 8 0 a8 8 0 1 1 -16 0 a12 12 0 1 1 24 0 a16 16 0 1 1 -32 0 a20 20 0 1 1 40 0`}
+          fill="none"
+          stroke={P}
+          strokeWidth="1.5"
+        />
+      )
+    return (
+      <g>
+        <path d={`M${x + 14} ${y + 72} L${x + 44} ${y + 34} L${x + 62} ${y + 54} L${x + 80} ${y + 26} L${x + 104} ${y + 72}`} fill="none" stroke={P} strokeWidth="1.5" />
+        <circle cx={x + 90} cy={y + 18} r="7" fill="none" stroke={S} strokeWidth="1.5" />
+      </g>
+    )
+  }
+  return (
+    <Frame id="art" label="Illustration: a gallery web page with a grid of framed pencil sketches">
+      <rect x="62" y="30" width="516" height="300" rx="14" fill={PANEL} stroke={S} strokeWidth="2" />
+      <path d="M62 64 H578" stroke={L} strokeWidth="2" />
+      {[84, 102, 120].map((x) => (
+        <circle key={x} cx={x} cy="47" r="5" fill={S} />
+      ))}
+      <Label x="320" y="52" anchor="middle" fill={P}>
+        gallery
+      </Label>
+      {frames.map(([x, y, kind], i) => (
+        <g key={`${x}-${y}`}>
+          <rect x={x} y={y} width="116" height="92" rx="4" fill="var(--ink)" stroke={i === 1 ? A : S} strokeWidth={i === 1 ? 2.5 : 1.5} />
+          {sketch(kind, x, y)}
+        </g>
+      ))}
+    </Frame>
+  )
+}
+
 const COVERS = {
+  'art-gallery': ArtGallery,
   'dog-collar': DogCollar,
   'file-transfer': FileTransfer,
   'chicken-swarm': ChickenSwarm,

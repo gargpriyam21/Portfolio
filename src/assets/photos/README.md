@@ -8,6 +8,7 @@ Accepted formats: `.jpg`, `.jpeg`, `.png`, `.webp`. Keep each file under about 4
 | File name                | Where it shows                                      | Shape                           |
 | ------------------------ | --------------------------------------------------- | ------------------------------- |
 | `portrait`               | Hero, in the agent-run card (your photo)            | square, face filling most of it |
+| `about-portrait`         | About, the large portrait beside the text           | tall (4:5)                      |
 | `work-aws`               | Career panel (laptops), Amazon Web Services         | 4:3                             |
 | `work-deloitte`          | Career panel (laptops), Deloitte                    | 4:3                             |
 | `work-ncsu`              | Career panel (laptops), NC State research assistant | 4:3                             |
@@ -22,6 +23,7 @@ Accepted formats: `.jpg`, `.jpeg`, `.png`, `.webp`. Keep each file under about 4
 | `project-door-detection` | Projects, Door Movement Detection                   | wide (16:9)                     |
 | `project-mypack-lite`    | Projects, MyPack-Lite                               | wide (16:9)                     |
 | `project-brain-tumour`   | Projects, Brain Tumour Segmentation                 | wide (16:9)                     |
+| `project-art-gallery`    | Projects, Art Gallery                               | wide (16:9)                     |
 
 To move what a photo shows inside its frame, set `photoPosition` next to its `photo`
 value in `src/data/profile.js` (for example `'center 20%'` keeps the top in view).
